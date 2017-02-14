@@ -11,8 +11,8 @@ Redmine::Plugin.register :redmine_todos do
   url 'http://azielinski.info'
   author_url 'mailto:kontakt@azielinski'
 
-  requires_redmine :version_or_higher => '2.0.0'  
-  
+  requires_redmine :version_or_higher => '2.0.0'
+
   settings :default => {
     :uncompleted_todo_status   => nil,
     :completed_todo_status => nil
@@ -28,8 +28,7 @@ Redmine::Plugin.register :redmine_todos do
          :todo_item  => :create
      }
      permission :update_todo_lists, {
-         :todo_list  => :update,
-         :todo_list  => :save_order
+         :todo_list  => [:update, :save_order]
      }
      permission :delete_todo_lists, {
          :todo_list  => :delete
@@ -39,8 +38,7 @@ Redmine::Plugin.register :redmine_todos do
          :todo_list  => :create,
      }
      permission :update_todos, {
-         :todo_item  => :update,
-         :todo_item  => :toggle
+         :todo_item  => [:update, :toggle]
      }
      permission :delete_todos, {
          :todo_item  => :delete
